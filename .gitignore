@@ -1,0 +1,63 @@
+# ========================
+# Dependencies
+# ========================
+node_modules/
+.pnp
+.pnp.js
+
+# ========================
+# Build outputs
+# ========================
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# ========================
+# Environment files
+# ========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ========================
+# IDE & OS
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ========================
+# Debug & Logs
+# ========================
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log
+
+# ========================
+# Testing
+# ========================
+coverage/
+
+# ========================
+# Docker
+# ========================
+docker-data/
+
+# ========================
+# Prisma
+# ========================
+prisma/migrations/*.sql.bak
+
+# ========================
+# Misc
+# ========================
+*.tgz
+.cache

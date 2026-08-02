@@ -1,0 +1,28 @@
+{
+  "name": "standlens",
+  "version": "0.1.0",
+  "private": true,
+  "description": "StandLens — AI-powered async standup summarizer for dev teams",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "dotenv -e .env -- npm run dev --workspace=apps/web",
+    "dev:api": "dotenv -e .env -- npm run dev --workspace=apps/api",
+    "build:web": "npm run build --workspace=apps/web",
+    "build:api": "npm run build --workspace=apps/api",
+    "db:migrate": "dotenv -e .env -- npm run migrate --workspace=apps/api",
+    "db:seed": "dotenv -e .env -- npm run seed --workspace=apps/api",
+    "db:generate": "dotenv -e .env -- npm run generate --workspace=apps/api",
+    "db:studio": "dotenv -e .env -- npm run studio --workspace=apps/api",
+    "lint": "npm run lint --workspaces --if-present",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\""
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^11.0.0"
+  }
+}
