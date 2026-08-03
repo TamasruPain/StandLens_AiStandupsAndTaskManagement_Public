@@ -68,6 +68,14 @@ export default function DashboardPage() {
   const [myTasks, setMyTasks] = useState<Task[]>([]);
   const [selectedTaskId, setSelectedTaskId] = useState<string | null>(null);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [greeting, setGreeting] = useState('Good morning');
+
+  useEffect(() => {
+    const hour = new Date().getHours();
+    const currentGreeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setGreeting(currentGreeting);
+  }, []);
 
   // Fallback test user ID from DB seed if unauthenticated in dev
   const activeUserId = session?.user?.id || 'demo-user-alex';
@@ -141,7 +149,7 @@ export default function DashboardPage() {
           {/* Greeting Banner */}
           <div>
             <h2 className="text-3xl font-extrabold text-[#F0ECE5] tracking-tight">
-              Good morning, {userName} 👋
+              {greeting}, {userName} 👋
             </h2>
             <p className="text-sm text-[#9B9BA3] mt-1">
               Here is what is happening across your standup teams today.
