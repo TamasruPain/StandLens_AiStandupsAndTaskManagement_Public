@@ -22,7 +22,7 @@ export class DigestsController {
     return userId;
   }
 
-  // Trigger AI digest generation (Enqueues job to BullMQ)
+  // Trigger AI digest generation (direct generation)
   @Post('generate')
   async triggerDigestGeneration(
     @Headers() headers: Record<string, string>,

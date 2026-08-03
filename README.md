@@ -56,7 +56,7 @@ Replace long, synchronous daily standup meetings with async text updates. StandL
 | **Backend** | [NestJS](https://nestjs.com/) | Progressive Node.js framework for scalable API layers |
 | **Database** | [PostgreSQL](https://www.postgresql.org/) ([Neon DB](https://neon.tech/)) | Serverless relational database hosting |
 | **ORM** | [Prisma ORM](https://www.prisma.io/) | Schema definition, migrations, and database client generation |
-| **Task Queue** | [BullMQ](https://bullmq.io/) & [Upstash Redis](https://upstash.com/) | Async job queuing for background tasks and digests |
+| **Task Scheduler** | [@nestjs/schedule](https://docs.nestjs.com/techniques/task-scheduling) | Cron-based scheduling for team digest compilation |
 | **AI Synthesis** | [OpenRouter API](https://openrouter.ai/) | Access to advanced open-source models with high-resilience fallback |
 
 ---
@@ -104,7 +104,6 @@ cp .env.example .env
 | Variable | Description |
 | :--- | :--- |
 | `DATABASE_URL` | PostgreSQL connection string with SSL mode required (e.g. Neon DB). |
-| `REDIS_URL` | Upstash Redis connection string (production) or `redis://localhost:6379` (local Docker). |
 | `BETTER_AUTH_SECRET` | A secure, random 32-character secret key. |
 | `BETTER_AUTH_URL` | URL of the authentication server (defaults to Next.js host: `http://localhost:3000`). |
 | `GOOGLE_CLIENT_ID` / `_SECRET`| *(Optional)* Credentials for Google Social OAuth login. |
@@ -123,7 +122,6 @@ Follow these steps to set up and run the StandLens codebase locally:
 ### 1. Prerequisites
 - **Node.js**: Version `>= 20.0.0`
 - **Database**: A PostgreSQL instance (e.g., Neon DB)
-- **Redis**: A running Redis instance or Docker container (`docker run -d -p 6379:6379 redis:alpine`)
 
 ### 2. Install Dependencies
 Run the install command at the root of the monorepo to bootstrap the workspace:
